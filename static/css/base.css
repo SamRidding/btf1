@@ -26,7 +26,9 @@ nav {
 }
 
 #burger {
-    margin: 1rem 2rem;
+    position: absolute;
+    right: 0.8rem;
+    display: none;
 }
 
 #burger a {
@@ -59,4 +61,71 @@ nav {
 
 .navbar-links li p:hover {
     color: #EAF0F0;
+}
+
+/* ------------------------------------------- Tablet Media Query */
+
+@media only screen and (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #logo {
+        margin: 0.6rem 0.6rem;
+    }
+
+    #logo a {
+        font-size: 1.4rem;
+    }
+
+    #burger {
+        display: flex;
+        margin: 0.8rem 0;
+    }
+
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 0;
+    }
+
+    .navbar-links ul {
+        flex-direction: column;
+        /* width: 100%; */
+    }
+
+    .navbar-links li {
+        text-align: center;
+    }
+
+    .navbar-links li p {
+        padding: 0.4rem 0;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+}
+
+/* ------------------------------------------- Mobile Media Query */
+
+@media only screen and (max-width: 480px) {
+
+    #logo a {
+        font-size: 1.2rem;
+    }
+
+    #burger {
+        font-size: 0.8rem;
+    }
+
+    .navbar-links li p {
+        padding: 0.2rem 0;
+        font-size: 1rem;
+    }
+
 }
