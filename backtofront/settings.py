@@ -15,7 +15,7 @@ import os
 import dj_database_url
 
 if os.path.isfile("env.py"):
-   import env
+    import env
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -49,6 +53,11 @@ INSTALLED_APPS = [
     'fontawesomefree',
     'blog',
 ]
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -94,7 +103,6 @@ WSGI_APPLICATION = 'backtofront.wsgi.application'
 DATABASES = {
    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
-
 
 
 # Password validation
