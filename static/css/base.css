@@ -31,3 +31,32 @@ nav {
 
 #burger a {
     color: black;
+}
+
+.navbar-links {
+    margin: 0 2rem;
+}
+
+.navbar-links ul {
+    display: flex;
+}
+
+.navbar-links li {
+    list-style: none;
+}
+
+.navbar-links li a {
+    text-decoration: none;
+}
+
+.navbar-links li p {
+    padding: 0.8rem;
+    font-family: 'Hind Madurai', sans-serif;
+    color: black;
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.navbar-links li p:hover {
+    color: #EAF0F0;
+}
