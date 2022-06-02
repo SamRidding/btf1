@@ -1,0 +1,39 @@
+#post-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-title {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    max-width: 80%;
+    margin: 2rem 0;
+}
+
+.post-title h1 {
+    font-family: 'Hind Madurai', sans-serif;
+    font-size: 3.2rem;
+    font-weight: bolder;
+}
+
+.post-img {
+    height: 28rem;
+    width: 28rem;
+}
+
+.post-info {
+    font-family: 'Hind Madurai', sans-serif;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.post-content {
+    max-width: 80%;
+    font-family: 'Hind Madurai', sans-serif;
+}
+
+.music-preview {
+    margin: 2rem 0;
+}
