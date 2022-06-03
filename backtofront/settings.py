@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'embed_video',
     'fontawesomefree',
+    'crispy_forms',
     'blog',
 ]
 
