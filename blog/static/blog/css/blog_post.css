@@ -1,3 +1,7 @@
+body {
+    font-family: 'Hind Madurai', sans-serif;
+}
+
 #post-section {
     display: flex;
     flex-direction: column;
@@ -13,9 +17,9 @@
 }
 
 .post-title h1 {
-    font-family: 'Hind Madurai', sans-serif;
+
     font-size: 3.2rem;
-    font-weight: bolder;
+    font-weight: 600;
 }
 
 .post-img {
@@ -24,16 +28,36 @@
 }
 
 .post-info {
-    font-family: 'Hind Madurai', sans-serif;
     text-align: center;
     margin: 1rem 0;
 }
 
 .post-content {
     max-width: 80%;
-    font-family: 'Hind Madurai', sans-serif;
 }
 
 .music-preview {
     margin: 2rem 0;
 }
+
+#comment-head {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem auto;
+    font-size: 1.4rem;
+}
+
+#posted-comments {
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    margin: 1.2rem auto;
+}
+
+#comment-user {
+    display: flex;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+

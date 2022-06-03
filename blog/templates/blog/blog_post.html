@@ -35,7 +35,7 @@
 
 </section>
 
-<section class="comment-section">
+<section id="comment-section">
 
     <div id="bootstrap-override" class="comment-form">
         <form method="post" style="margin-top: 1.3em;">
@@ -45,13 +45,21 @@
         </form>
     </div>
 
-    <div>
-        {% for comment in comments %}
-        {{ comment.body }}
-        {{ comment.user }}
-        {{ comment.posted_on }}
-        {% endfor %}
+    <div id="comment-head">
+        <h2>Comments</h2>
     </div>
+
+    {% for comment in comments %}
+    <div id="posted-comments">
+        <div id="comment-user">
+            <p id="comment-username">{{ comment.user }} &nbsp</p>
+            <p id="comment-date"> {{ comment.posted_on }}</p>
+        </div>
+        <div>
+            {{ comment.body }}
+        </div>
+    </div>
+    {% endfor %}
 
 </section>
 {% endblock %}
