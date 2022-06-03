@@ -1,0 +1,22 @@
+body {
+    font-family: 'Hind Madurai', sans-serif;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 33%;
+    margin: 0 auto;
+    margin-top: 8rem;
+}
+
+.form-head {
+    font-weight: bolder;
+}
+
+.p {
+    margin-bottom: 0;
+}
+
+
