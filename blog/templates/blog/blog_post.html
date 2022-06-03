@@ -31,4 +31,16 @@
     </div>
 
 </section>
+
+<section id="comment-section">
+
+    <div>
+        {% for comment in comments %}
+        {{ comment.body }}
+        {{ comment.user }}
+        {{ comment.posted_on }}
+        {% endfor %}
+    </div>
+
+</section>
 {% endblock %}
