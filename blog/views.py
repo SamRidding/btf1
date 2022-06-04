@@ -39,6 +39,7 @@ class BlogPost(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            comment_form = CommentForm()
         else:
             comment_form = CommentForm()
 
