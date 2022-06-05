@@ -15,6 +15,8 @@ class Post(models.Model):
     content = models.TextField(blank=True)
     music_preview = EmbedVideoField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
+    save_release = models.ManyToManyField(
+        User, related_name='save_release', default=None, blank=True)
 
     class Meta:
         ordering = ["-posted_on"]
