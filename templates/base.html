@@ -41,6 +41,7 @@
         <div class="navbar-links">
             <ul>
                 {% if user.is_authenticated %}
+                <li><a href="{% url 'userprofile' %}"><p>Account</p></a></li>
                 <li><a href="{% url 'account_logout' %}"><p>Log Out</p></a></li>
                 {% else %}
                 <li><a href="{% url 'account_login' %}"><p>Log In</p></a></li>
