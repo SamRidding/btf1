@@ -40,6 +40,20 @@ body {
     margin: 2rem 0;
 }
 
+#form-save {
+    max-width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 auto;
+    align-items: flex-end;
+}
+
+#save-release a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #comment-head {
     max-width: 80%;
     display: flex;

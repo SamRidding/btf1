@@ -37,12 +37,23 @@
 
 <section id="comment-section">
 
-    <div id="bootstrap-override" class="comment-form">
-        <form method="post" style="margin-top: 1.3em;">
-            {{ comment_form | crispy }}
-            {% csrf_token %}
-            <button type="submit" class="btn btn-outline-secondary">Submit</button>
-        </form>
+    <div id="form-save">
+
+        <div id="bootstrap-override" class="comment-form">
+            <form method="post" style="margin-top: 1.3em;">
+                {{ comment_form | crispy }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-secondary">Submit</button>
+            </form>
+        </div>
+
+        <div id="save-release">
+            <a href="#" class="btn btn-outline-secondary">
+                <i class="fa-solid fa-plus"></i>
+                <p>&nbsp Save Release</p>
+            </a>
+        </div>
+
     </div>
 
     <div id="comment-head">
