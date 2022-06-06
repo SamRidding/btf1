@@ -4,6 +4,6 @@ from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     # path("", views.UserProfile.as_view(), name="userprofile"),
-    path('fav/<int:id>/', views.add_release, name='add_release'),
+    path('add/<int:id>/', views.add_release, name='add_release'),
     path("", views.saved_releases, name='userprofile'),
 ]
