@@ -16,6 +16,10 @@ class BlogPost(View):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by("-posted_on")
+        saved = bool
+
+        if post.save_release.filter(id=request.user.id).exists():
+            saved = True
 
         return render(
             request,
@@ -23,7 +27,8 @@ class BlogPost(View):
             {
                 "post": post,
                 "comments": comments,
-                "comment_form": CommentForm()
+                "comment_form": CommentForm(),
+                "saved": saved,
             },
         )
 
