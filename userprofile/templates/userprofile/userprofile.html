@@ -4,4 +4,11 @@
 
 <h1>Hello, {{ user.username }}</h1>
 
+{% for post in new %}
+
+<img class="post-img" src="{{ post.image.url }}" alt="">
+<p>{{ post.title }}</p>
+
+{% endfor %}
+
 {% endblock %}
