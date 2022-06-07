@@ -14,3 +14,11 @@ class AddPostForm(forms.ModelForm):
         model = Post
         fields = ('title', 'image', 'content', 
                   'slug', 'music_preview', 'status')
+
+
+class EditPostForm(forms.ModelForm):
+    
+    class Meta:
+        model = Post
+        fields = ('title', 'image', 'content', 
+                  'slug', 'music_preview', 'status')
