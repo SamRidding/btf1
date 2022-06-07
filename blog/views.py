@@ -1,7 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, AddPostForm
 
 
 class PostList(generic.ListView):
@@ -57,3 +57,28 @@ class BlogPost(View):
                 "comment_form": comment_form,
             },
         ) 
+
+
+def AddPost(request):
+
+    if request.method == 'POST':
+        form = AddPostForm(request.POST, request.FILES)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect('home')
+        else:
+            return redirect('add_post')
+    else:
+        form = AddPostForm()
+
+    template = "blog/add_post.html"
+
+    context = {
+        "form": form,
+    }
+
+    return render(request,
+                  template,
+                  context)
