@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic, View
 from .models import Post, Comment
-from .forms import CommentForm, AddPostForm
+from .forms import CommentForm, AddPostForm, EditPostForm
 
 
 class PostList(generic.ListView):
@@ -77,6 +77,30 @@ def AddPost(request):
 
     context = {
         "form": form,
+    }
+
+    return render(request,
+                  template,
+                  context)
+
+
+def EditPost(request, slug):
+
+    post = get_object_or_404(Post, slug=slug)
+    if request.method == "POST":
+        form = EditPostForm(request.POST, request.FILES, instance=post)
+        if form.is_valid():
+            form.save()
+            
+    else:
+        form = EditPostForm(instance=post)
+
+    template = "blog/edit_post.html"
+
+    context = {
+        "form": form,
+        "post": post,
+        "edit_post": True,
     }
 
     return render(request,
