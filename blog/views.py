@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views import generic, View
 from .models import Post, Comment
 from .forms import CommentForm, AddPostForm, EditPostForm
@@ -56,7 +56,16 @@ class BlogPost(View):
                 "comments": comments,
                 "comment_form": comment_form,
             },
-        ) 
+        )
+
+
+def DeleteComment(request, comment_id):
+
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if request.user == comment.user:
+        comment.delete()
+        return redirect(reverse('blog_post', args=[comment.post.slug]))
 
 
 def AddPost(request):
