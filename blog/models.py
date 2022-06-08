@@ -11,7 +11,7 @@ class Post(models.Model):
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     posted_on = models.DateField(auto_now_add=True)
-    image = models.ImageField(blank=True)
+    image = models.ImageField()
     content = models.TextField(blank=True)
     music_preview = EmbedVideoField(blank=True)
     status = models.IntegerField(choices=STATUS, default=0)
