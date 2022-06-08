@@ -60,7 +60,18 @@ nav {
 }
 
 .navbar-links li p:hover {
-    color: #EAF0F0;
+    color: #eaf0f0;
+}
+
+#user-msg {
+    height: 3rem;
+    background-color: #EAF0F0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 98%;
+    border-radius: 0.1rem;
+    margin: 0.2rem auto;
 }
 
 /* ------------------------------------------- Tablet Media Query */
