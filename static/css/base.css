@@ -60,16 +60,17 @@ nav {
 }
 
 .navbar-links li p:hover {
-    color: #eaf0f0;
+    color: #EAF0F0;
 }
 
 #user-msg {
     height: 3rem;
-    background-color: #EAF0F0;
+    width: 100%;
+    background-color: #c3eaea78;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 98%;
+    border: 0.1rem solid #c3eaea;
     border-radius: 0.1rem;
     margin: 0.2rem auto;
 }
