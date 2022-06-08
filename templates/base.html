@@ -64,13 +64,15 @@
         </div>
     </nav>
 
-    <div id="user-msg">
+    
     {% if messages %}
         {% for message in messages %}
-            {{ message }}
+            <div id="user-msg">
+                {{ message }}
+            </div>
         {% endfor %}
     {% endif %}
-    </div>
+    
 
     <main>
         {% block content %}
