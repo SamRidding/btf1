@@ -48,10 +48,16 @@
         </div>
 
         {% if user.is_authenticated %}
+
+        <div id="save-release">
+            <a href="{% url 'delete_post' post.slug %}" class="btn btn-outline-secondary">
+                <p>Delete Post</p>
+            </a>
+        </div>
         
         <div id="save-release">
             <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-secondary">
-                <p>Edit Release</p>
+                <p>Edit Post</p>
             </a>
         </div>
 
