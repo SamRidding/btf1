@@ -101,6 +101,11 @@
         <div>
             {{ comment.body }}
         </div>
+        {% if comment.user == request.user %}
+        <div>
+            <a href="{% url 'delete_comment' comment.id %}">Delete</a>
+        </div>
+        {% endif %}
     </div>
     {% endfor %}
 
