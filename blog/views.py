@@ -106,3 +106,11 @@ def EditPost(request, slug):
     return render(request,
                   template,
                   context)
+
+
+def DeletePost(request, slug):
+
+    if request.user.is_staff:
+        post = get_object_or_404(Post, slug=slug)
+        post.delete()
+        return redirect('home')
