@@ -61,6 +61,7 @@ class BlogPost(View):
         )
 
 
+@login_required
 def DeleteComment(request, comment_id):
 
     comment = get_object_or_404(Comment, pk=comment_id)
@@ -71,6 +72,7 @@ def DeleteComment(request, comment_id):
         return redirect(reverse('blog_post', args=[comment.post.slug]))
 
 
+@login_required
 def AddPost(request):
 
     if request.method == 'POST':
@@ -100,6 +102,7 @@ def AddPost(request):
                   context)
 
 
+@login_required
 def EditPost(request, slug):
 
     post = get_object_or_404(Post, slug=slug)
@@ -126,6 +129,7 @@ def EditPost(request, slug):
                   context)
 
 
+@login_required
 def DeletePost(request, slug):
 
     if request.user.is_staff:

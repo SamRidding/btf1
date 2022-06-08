@@ -6,7 +6,7 @@ from django.views.generic import TemplateView
 from blog.models import Post
 
 
-@ login_required
+@login_required
 def saved_releases(request):
     new = Post.objects.filter(save_release=request.user)
     return render(request,
@@ -14,7 +14,7 @@ def saved_releases(request):
                   {'new': new})
 
 
-@ login_required
+@login_required
 def add_release(request, id):
     post = get_object_or_404(Post, id=id)
     if post.save_release.filter(id=request.user.id).exists():
