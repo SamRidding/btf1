@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
 from django.views import generic, View
+from django.contrib.auth.decorators import login_required
 from .models import Post, Comment
 from .forms import CommentForm, AddPostForm, EditPostForm
 
@@ -65,6 +67,7 @@ def DeleteComment(request, comment_id):
 
     if request.user == comment.user:
         comment.delete()
+        messages.success(request, 'Your comment has been deleted')
         return redirect(reverse('blog_post', args=[comment.post.slug]))
 
 
@@ -76,8 +79,12 @@ def AddPost(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('home')
+            messages.success(request, "The post has been added to the blog.")
+            return redirect(reverse('blog_post', args=[post.slug]))
         else:
+            messages.error(request,
+                           "The post could not be submitted. \
+                            Please try again.")
             return redirect('add_post')
     else:
         form = AddPostForm()
@@ -100,7 +107,9 @@ def EditPost(request, slug):
         form = EditPostForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save()
-            
+            messages.success(request, 'Post updated')
+        else:
+            messages.error(request, 'Failed to update - please try again')
     else:
         form = EditPostForm(instance=post)
 
@@ -122,4 +131,5 @@ def DeletePost(request, slug):
     if request.user.is_staff:
         post = get_object_or_404(Post, slug=slug)
         post.delete()
+        messages.success(request, "The post has been deleted")
         return redirect('home')
