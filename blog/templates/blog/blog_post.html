@@ -47,8 +47,7 @@
             </form>
         </div>
 
-        {% if user.is_authenticated %}
-
+        {% if user.is_staff %}
         <div id="save-release">
             <a href="{% url 'delete_post' post.slug %}" class="btn btn-outline-secondary">
                 <p>Delete Post</p>
@@ -60,7 +59,9 @@
                 <p>Edit Post</p>
             </a>
         </div>
+        {% endif %}
 
+        {% if user.is_authenticated %}
         {% if saved %}
         <div id="save-release">
             <a href="{% url 'add_release' post.id %}" class="btn btn-outline-secondary">
@@ -76,7 +77,6 @@
             </a>
         </div>
         {% endif %}
-
         {% else %}
         <div id="save-release">
             <a href="{% url 'account_signup' %}" class="btn btn-outline-secondary">
