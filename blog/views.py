@@ -9,7 +9,7 @@ from .forms import CommentForm, AddPostForm, EditPostForm
 
 class PostList(generic.ListView):
     model = Post
-    queryset = Post.objects.filter(status=1).order_by("-posted_on")
+    queryset = Post.objects.filter(status=1).order_by("-posted_on")[:6]
     template_name = "home.html"
 
 
