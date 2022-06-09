@@ -2,11 +2,26 @@
 
 #post-section {
     display: flex;
-    justify-content:center
+    flex-direction: column;
+    align-items: center;
+}
+
+#blog-contain {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#blog-link h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+#blog-link a {
+    text-decoration: none;
+    color: black;
 }
 
 #posts {
-    width: 80%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
