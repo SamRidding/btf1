@@ -43,12 +43,9 @@
     margin: 1rem auto;
 }
 
-#form-save {
+.comment-form {
     max-width: 80%;
-    display: flex;
-    justify-content: space-evenly;
     margin: 0 auto;
-    align-items: flex-end;
 }
 
 #user-btn a {
