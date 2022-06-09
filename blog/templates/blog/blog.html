@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<section id="post-section">
+    <div id="posts">
+        {% for post in post_list %}
+        <div class="blog-post">
+            <a href="{% url 'blog_post' post.slug  %}">
+                <div class="post-img-contain">
+                    <img class="post-img" src="{{ post.image.url }}">
+                </div>
+                <h3 class="post-title">{{ post.title }}</h3>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %} 
