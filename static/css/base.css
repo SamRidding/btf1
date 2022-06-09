@@ -6,6 +6,11 @@
     border: none;
 }
 
+body {
+    width: 100%;
+    position: absolute;
+}
+
 /*--------------------------------- Navigation*/
 
 nav {
@@ -98,7 +103,7 @@ nav {
         margin: 0.6rem 0.6rem;
     }
 
-    #logo a {
+    #logo h2 {
         font-size: 1.4rem;
     }
 
