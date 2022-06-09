@@ -137,3 +137,7 @@ def DeletePost(request, slug):
         post.delete()
         messages.success(request, "The post has been deleted")
         return redirect('home')
+    else:
+        messages.error(request,
+                       'You do not have permission to delete this post.')
+        return redirect(reverse('blog_post', args=[post.slug]))
