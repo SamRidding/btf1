@@ -25,6 +25,10 @@ nav {
     font-family: 'Raleway', sans-serif;
 }
 
+#logo h2 {
+    font-size: 3rem;
+}
+
 #burger {
     position: absolute;
     right: 0.8rem;
@@ -35,31 +39,33 @@ nav {
     color: black;
 }
 
-.navbar-links {
+#navbar-links {
     margin: 0 2rem;
 }
 
-.navbar-links ul {
+#navbar-links ul {
     display: flex;
+    margin-bottom: 0;
 }
 
-.navbar-links li {
+#navbar-links li {
     list-style: none;
 }
 
-.navbar-links li a {
+#navbar-links li a {
     text-decoration: none;
 }
 
-.navbar-links li p {
+#navbar-links li p {
     padding: 0.8rem;
     font-family: 'Hind Madurai', sans-serif;
     color: black;
     font-size: 1.2rem;
     font-weight: 500;
+    margin-bottom: 0;
 }
 
-.navbar-links li p:hover {
+#navbar-links li p:hover {
     color: #EAF0F0;
 }
 
@@ -73,6 +79,10 @@ nav {
     border: 0.1rem solid #c3eaea;
     border-radius: 0.1rem;
     margin: 0.2rem auto;
+}
+
+#bootstrap-overide p {
+    margin-bottom: 0 !important;
 }
 
 /* ------------------------------------------- Tablet Media Query */
@@ -97,27 +107,27 @@ nav {
         margin: 0.8rem 0;
     }
 
-    .navbar-links {
+    #navbar-links {
         display: none;
         flex-direction: column;
         width: 100%;
         margin: 0 0;
     }
 
-    .navbar-links ul {
+    #navbar-links ul {
         flex-direction: column;
         /* width: 100%; */
     }
 
-    .navbar-links li {
+    #navbar-links li {
         text-align: center;
     }
 
-    .navbar-links li p {
+    #navbar-links li p {
         padding: 0.4rem 0;
     }
 
-    .navbar-links.active {
+    #navbar-links.active {
         display: flex;
     }
 
@@ -135,7 +145,7 @@ nav {
         font-size: 0.8rem;
     }
 
-    .navbar-links li p {
+    #navbar-links li p {
         padding: 0.2rem 0;
         font-size: 1rem;
     }
