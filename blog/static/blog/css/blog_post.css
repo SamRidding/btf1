@@ -75,3 +75,12 @@ body {
     font-size: 1.1rem;
 }
 
+/* ------------------------------------------- Tablet Media Query */
+
+@media only screen and (max-width: 768px) {
+
+    .post-content {
+        text-align: center;
+    }
+
+}
