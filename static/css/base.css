@@ -9,6 +9,7 @@
 body {
     width: 100%;
     position: absolute;
+    font-family: 'Hind Madurai', sans-serif;
 }
 
 /*--------------------------------- Navigation*/
@@ -63,7 +64,6 @@ nav {
 
 #navbar-links li p {
     padding: 0.8rem;
-    font-family: 'Hind Madurai', sans-serif;
     color: black;
     font-size: 1.2rem;
     font-weight: 500;
@@ -84,10 +84,6 @@ nav {
     border: 0.1rem solid #c3eaea;
     border-radius: 0.1rem;
     margin: 0.2rem auto;
-}
-
-#bootstrap-overide p {
-    margin-bottom: 0 !important;
 }
 
 /* ------------------------------------------- Tablet Media Query */
