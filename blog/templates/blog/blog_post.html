@@ -92,8 +92,9 @@
         <h2>Comments</h2>
     </div>
 
-    {% for comment in comments %}
     <div id="posted-comments">
+        {% if comments %}
+        {% for comment in comments %}
         <div id="comment-user">
             <p id="comment-username">{{ comment.user }} &nbsp</p>
             <p id="comment-date"> {{ comment.posted_on }}</p>
@@ -106,8 +107,13 @@
             <a href="{% url 'delete_comment' comment.id %}">Delete</a>
         </div>
         {% endif %}
+        {% endfor %}
+        {% else %}
+        <div id="nocomments">
+            <p>This post has no comments.</p>
+        </div>
+        {% endif %}
     </div>
-    {% endfor %}
 
 </section>
 {% endblock %}
