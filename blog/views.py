@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
 from .models import Post, Comment
 from .forms import CommentForm, AddPostForm, EditPostForm
 
@@ -80,6 +81,7 @@ def AddPost(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
+            post.slug = slugify(post.title)
             post.save()
             messages.success(request, "The post has been added to the blog.")
             return redirect(reverse('blog_post', args=[post.slug]))
