@@ -35,6 +35,51 @@
 
 </section>
 
+<section id="user-options">
+
+    <div id="user-btns">
+        {% if user.is_staff %}
+        <div id="user-btn">
+            <a href="{% url 'delete_post' post.slug %}" class="btn btn-outline-secondary">
+                <p>Delete Post</p>
+            </a>
+        </div>
+
+        <div id="user-btn">
+            <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-secondary">
+                <p>Edit Post</p>
+            </a>
+        </div>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+        {% if saved %}
+        <div id="user-btn">
+            <a href="{% url 'add_release' post.id %}" class="btn btn-outline-secondary">
+                <i class="fa-solid fa-minus"></i>
+                <p>&nbsp Remove Release</p>
+            </a>
+        </div>
+        {% else %}
+        <div id="user-btn">
+            <a href="{% url 'add_release' post.id %}" class="btn btn-outline-secondary">
+                <i class="fa-solid fa-plus"></i>
+                <p>&nbsp Save Release</p>
+            </a>
+        </div>
+        {% endif %}
+        {% else %}
+        <div id="user-btn">
+            <a href="{% url 'account_signup' %}" class="btn btn-outline-secondary">
+                <i class="fa-solid fa-plus"></i>
+                <p>&nbsp Save Release</p>
+            </a>
+        </div>
+        {% endif %}
+    </div>
+
+</section>
+
 <section id="comment-section">
 
     <div id="form-save">
@@ -46,45 +91,6 @@
                 <button type="submit" class="btn btn-outline-secondary">Submit</button>
             </form>
         </div>
-
-        {% if user.is_staff %}
-        <div id="save-release">
-            <a href="{% url 'delete_post' post.slug %}" class="btn btn-outline-secondary">
-                <p>Delete Post</p>
-            </a>
-        </div>
-        
-        <div id="save-release">
-            <a href="{% url 'edit_post' post.slug %}" class="btn btn-outline-secondary">
-                <p>Edit Post</p>
-            </a>
-        </div>
-        {% endif %}
-
-        {% if user.is_authenticated %}
-        {% if saved %}
-        <div id="save-release">
-            <a href="{% url 'add_release' post.id %}" class="btn btn-outline-secondary">
-                <i class="fa-solid fa-minus"></i>
-                <p>&nbsp Remove Release</p>
-            </a>
-        </div>
-        {% else %}
-        <div id="save-release">
-            <a href="{% url 'add_release' post.id %}" class="btn btn-outline-secondary">
-                <i class="fa-solid fa-plus"></i>
-                <p>&nbsp Save Release</p>
-            </a>
-        </div>
-        {% endif %}
-        {% else %}
-        <div id="save-release">
-            <a href="{% url 'account_signup' %}" class="btn btn-outline-secondary">
-                <i class="fa-solid fa-plus"></i>
-                <p>&nbsp Save Release</p>
-            </a>
-        </div>
-        {% endif %}
 
     </div>
 
