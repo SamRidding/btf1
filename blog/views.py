@@ -13,6 +13,12 @@ class PostList(generic.ListView):
     template_name = "home.html"
 
 
+class Blog(generic.ListView):
+    model = Post
+    queryset = Post.objects.filter(status=1).order_by("-posted_on")
+    template_name = "blog/blog.html"
+
+
 class BlogPost(View):
 
     def get(self, request, slug, *args, **kwargs):
