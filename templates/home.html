@@ -7,6 +7,13 @@
 
 {% block content %}
 
+
+<div id="featured-post">
+    <img src="{{ featuredpost.image.url }}">
+    <div class="feature-title"><h2>{{ featuredpost.title }}</h2></div>
+</div>
+
+
 <section id="post-section">
 
     <div id="blog-contain">
@@ -16,7 +23,7 @@
             </h2>
         </div>
         <div id="posts">
-            {% for post in post_list %}
+            {% for post in posts %}
             <div class="blog-post">
                 <a href="{% url 'blog_post' post.slug  %}">
                     <div class="post-img-contain">
