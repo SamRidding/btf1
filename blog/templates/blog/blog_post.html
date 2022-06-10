@@ -105,7 +105,7 @@
             <div>
                 {{ comment.body }}
             </div>
-            {% if comment.user == request.user %}
+            {% if comment.user == request.user or request.user.is_staff %}
             <div>
                 <a href="{% url 'delete_comment' comment.id %}">Delete</a>
             </div>

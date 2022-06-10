@@ -73,9 +73,9 @@ def DeleteComment(request, comment_id):
 
     comment = get_object_or_404(Comment, pk=comment_id)
 
-    if request.user == comment.user:
+    if request.user == comment.user or request.user.is_staff:
         comment.delete()
-        messages.success(request, 'Your comment has been deleted')
+        messages.success(request, 'The comment has been deleted')
         return redirect(reverse('blog_post', args=[comment.post.slug]))
 
 
