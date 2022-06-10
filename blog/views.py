@@ -5,12 +5,23 @@ from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from .models import Post, Comment
 from .forms import CommentForm, AddPostForm, EditPostForm
+import random
 
 
-class PostList(generic.ListView):
-    model = Post
-    queryset = Post.objects.filter(status=1).order_by("-posted_on")[:6]
-    template_name = "home.html"
+def HomePage(request):
+
+    posts = Post.objects.filter(status=1).order_by("-posted_on")[:6]
+    featuredpost = random.choice(posts)
+
+    template = "home.html"
+    context = {
+        "posts": posts,
+        "featuredpost": featuredpost,
+    }
+
+    return render(request,
+                  template,
+                  context)
 
 
 class Blog(generic.ListView):
