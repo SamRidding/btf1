@@ -82,41 +82,42 @@
 
 <section id="comment-section">
 
-        <div class="comment-form">
-            <form method="post" style="margin-top: 1.3em;">
-                {{ comment_form | crispy }}
-                {% csrf_token %}
-                <button type="submit" class="btn btn-outline-secondary">Submit</button>
-            </form>
-        </div>
+    <div class="comment-form">
+        <form method="post" style="margin-top: 1.3em;">
+            {{ comment_form | crispy }}
+            {% csrf_token %}
+            <button type="submit" class="btn btn-outline-secondary">Submit</button>
+        </form>
+    </div>
 
     <div>
         <div id="comment-head">
             <h2>Comments</h2>
         </div>
-    
+
+        {% if comments %}
+        {% for comment in comments %}
         <div id="posted-comments">
-            {% if comments %}
-            {% for comment in comments %}
+
             <div id="comment-user">
                 <p id="comment-username">{{ comment.user }} &nbsp</p>
                 <p id="comment-date"> {{ comment.posted_on }}</p>
             </div>
-            <div>
-                {{ comment.body }}
-            </div>
             {% if comment.user == request.user or request.user.is_staff %}
-            <div>
+            <div class="delete-comment">
                 <a href="{% url 'delete_comment' comment.id %}">Delete</a>
             </div>
             {% endif %}
-            {% endfor %}
-            {% else %}
-            <div id="nocomments">
-                <p>This post has no comments.</p>
+            <div>
+                {{ comment.body }}
             </div>
-            {% endif %}
         </div>
+        {% endfor %}
+        {% else %}
+        <div id="nocomments">
+            <p>This post has no comments.</p>
+        </div>
+        {% endif %}
     </div>
 
 </section>
