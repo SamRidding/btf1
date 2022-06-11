@@ -2,9 +2,28 @@
 {% load static %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'blog/css/search_blog.css' %}">
 {% endblock %}
 
 {% block content %}
-<h2>Search</h2>
+
+<section id="result-section">
+    <h1>Search Results:</h1>
+    <div id="result-contain">
+        <div id="results">
+            {% for result in results %}
+            <div class="blog-post">
+                <a href="{% url 'blog_post' result.slug  %}">
+                    <div class="post-img-contain">
+                        <img class="post-img" src="{{ result.image.url }}">
+                    </div>
+                    <h3 class="post-title">{{ result.title }}</h3>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
 {% endblock %}
+
