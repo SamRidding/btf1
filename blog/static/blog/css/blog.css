@@ -56,3 +56,28 @@
     font-family: 'Hind Madurai', sans-serif;
     margin: 0.4rem 0;
 }
+
+/* ------------------------------------------- Small Screen Media Query */
+
+@media only screen and (max-width: 1024px) {
+
+    .blog-post {
+        height: 22rem;
+        width: 48%;
+        overflow: hidden;
+        margin: 0.25rem 0;
+    }
+
+}
+
+/* ------------------------------------------- Tablet & Mobile Media Query */
+
+@media only screen and (max-width: 768px) {
+
+    .blog-post {
+        height: 20rem;
+        width: 96%;
+        overflow: hidden;
+        margin: 0.25rem 0;
+    }
+}
