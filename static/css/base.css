@@ -76,6 +76,7 @@ body {
 #search-arrow {
     position: absolute;
     right: 0;
+    top: 10px
 }
 
 /*--------------------------------- Navigation*/
