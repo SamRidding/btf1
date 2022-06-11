@@ -32,8 +32,14 @@ class Blog(generic.ListView):
 
 def SearchBlog(request):
 
-    return render(request, 'blog/search_blog.html')
-
+    if request.method == "POST":
+        searched = request.POST.get('searched')
+        results = Post.objects.filter(title__icontains=searched)
+        return render(request, 'blog/search_blog.html',
+                      {'searched': searched,
+                       'results': results, })
+    else:
+        return render(request, 'blog/search_blog.html')
 
 class BlogPost(View):
 
