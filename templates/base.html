@@ -12,7 +12,7 @@
 
     {% block extra_css %}
     {% endblock %}
-
+    
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
@@ -25,6 +25,12 @@
 </head>
 
 <body>
+
+    <div id="page-load">
+        <div class="page-load-logo">
+            <h2>BTF</h2>
+        </div>
+    </div>
 
     <!-- Navigation -->
     <nav>
@@ -64,15 +70,15 @@
         </div>
     </nav>
 
-    
+
     {% if messages %}
-        {% for message in messages %}
-            <div id="user-msg">
-                {{ message }}
-            </div>
-        {% endfor %}
+    {% for message in messages %}
+    <div id="user-msg">
+        {{ message }}
+    </div>
+    {% endfor %}
     {% endif %}
-    
+
 
     <main>
         {% block content %}
