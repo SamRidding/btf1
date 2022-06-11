@@ -61,6 +61,11 @@ body {
     position: relative;
 }
 
+.search-bar form {
+    height: 100%;
+    width: 100%;
+}
+
 .search-bar input {
     height: 100%;
     width: 100%;
