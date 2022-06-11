@@ -12,7 +12,7 @@
 
     {% block extra_css %}
     {% endblock %}
-    
+
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
     <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
@@ -32,6 +32,13 @@
         </div>
     </div>
 
+    <div id="search">
+        <div class="search-bar">
+            <input type="text" placeholder="">
+            <i id="search-arrow" class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div id="logo">
@@ -48,24 +55,39 @@
             <ul>
                 {% if user.is_authenticated %}
                 {% if user.is_staff %}
-                <li><a href="{% url 'add_post' %}">
+                <li>
+                    <a href="{% url 'add_post' %}">
                         <p>Add Post</p>
-                    </a></li>
+                    </a>
+                </li>
                 {% endif %}
-                <li><a href="{% url 'userprofile' %}">
+                <li>
+                    <a href="{% url 'userprofile' %}">
                         <p>Account</p>
-                    </a></li>
-                <li><a href="{% url 'account_logout' %}">
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'account_logout' %}">
                         <p>Log Out</p>
-                    </a></li>
+                    </a>
+                </li>
                 {% else %}
-                <li><a href="{% url 'account_login' %}">
+                <li>
+                    <a href="{% url 'account_login' %}">
                         <p>Log In</p>
-                    </a></li>
-                <li><a href="{% url 'account_signup' %}">
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'account_signup' %}">
                         <p>Sign Up</p>
-                    </a></li>
+                    </a>
+                </li>
                 {% endif %}
+                <li>
+                    <a href="#" id="search-btn">
+                        <p><i class="fa-solid fa-magnifying-glass"></i></p>
+                    </a>
+                </li>
             </ul>
         </div>
     </nav>
@@ -94,13 +116,11 @@
     <script src="{% static 'js/base.js' %}"></script>
 
     <script>
-
         var loader = document.getElementById('page-load');
 
-        window.addEventListener('load', function() {
+        window.addEventListener('load', function () {
             loader.style.display = 'none';
         });
-
     </script>
 
     {% block extra_js %}

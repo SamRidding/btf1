@@ -43,6 +43,41 @@ body {
     }
 }
 
+#search {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EAF0F0;
+}
+
+.search-bar {
+    width: 30%;
+    height: 2rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.search-bar input {
+    height: 100%;
+    width: 100%;
+    background-color: #EAF0F0;
+    color: black;
+    padding-left: 0.1rem;
+    border-bottom: solid 2px black;
+    outline: none;
+    font-size: 1rem;
+    font-family: 'Hind Madurai', sans-serif;
+}
+
+#search-arrow {
+    position: absolute;
+    right: 0;
+}
+
 /*--------------------------------- Navigation*/
 
 nav {
@@ -90,6 +125,9 @@ nav {
 }
 
 #navbar-links li a {
+    text-decoration: none;
+}
+#navbar-links li i {
     text-decoration: none;
 }
 
