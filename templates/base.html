@@ -34,8 +34,13 @@
 
     <div id="search">
         <div class="search-bar">
-            <input type="text" placeholder="">
-            <i id="search-arrow" class="fa-solid fa-arrow-right"></i>
+            <form method="POST" action="{% url 'search_blog' %}">
+                {% csrf_token %}
+                <input type="text">
+                <button id="search-arrow" type="submit">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </form>
         </div>
     </div>
 
