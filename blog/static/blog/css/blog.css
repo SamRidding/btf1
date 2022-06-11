@@ -1,0 +1,58 @@
+#post-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+#blog-contain {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#blog-link h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+#blog-link a {
+    text-decoration: none;
+    color: black;
+}
+
+#posts {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.blog-post {
+    height: 24rem;
+    width: 32%;
+    overflow: hidden;
+    margin: 0.25rem 0;
+}
+
+.blog-post a {
+    text-decoration: none;
+}
+
+.post-img-contain {
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EAF0F0;
+}
+
+.post-img {
+    max-width: 75%;
+    height: 75%;
+    object-fit: fill;
+}
+
+.post-title {
+    color: black;
+    font-family: 'Hind Madurai', sans-serif;
+    margin: 0.4rem 0;
+}
