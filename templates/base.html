@@ -36,7 +36,7 @@
         <div class="search-bar">
             <form method="POST" action="{% url 'search_blog' %}">
                 {% csrf_token %}
-                <input type="text">
+                <input type="search">
                 <button id="search-arrow" type="submit">
                     <i class="fa-solid fa-arrow-right"></i>
                 </button>
