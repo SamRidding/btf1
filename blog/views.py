@@ -30,6 +30,11 @@ class Blog(generic.ListView):
     template_name = "blog/blog.html"
 
 
+def SearchBlog(request):
+
+    return render(request, 'blog/search_blog.html')
+
+
 class BlogPost(View):
 
     def get(self, request, slug, *args, **kwargs):
