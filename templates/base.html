@@ -93,6 +93,16 @@
 
     <script src="{% static 'js/base.js' %}"></script>
 
+    <script>
+
+        var loader = document.getElementById('page-load');
+
+        window.addEventListener('load', function() {
+            loader.style.display = 'none';
+        });
+
+    </script>
+
     {% block extra_js %}
     {% endblock %}
 </body>
