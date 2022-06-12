@@ -8,7 +8,7 @@
     display: flex;
     flex-wrap: wrap;
     text-align: center;
-    max-width: 80%;
+    width: 80%;
     margin: 2rem 0;
 }
 
@@ -29,11 +29,13 @@
 }
 
 .post-content {
-    max-width: 80%;
+    width: 80%;
 }
 
 .music-preview {
     margin: 2rem 0;
+    width: 80%;
+    height: 28rem;
 }
 
 #user-btns {
@@ -98,6 +100,53 @@
 
     .post-content {
         text-align: center;
+    }
+
+}
+
+/* ------------------------------------------- Mobile Media Query */
+
+@media only screen and (max-width: 480px) {
+
+    .post-title {
+        width: 100%;
+        margin: 0;
+    }
+
+    .post-title h1 {
+        font-size: 2rem;
+    }
+
+    .img_contain {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .post-img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .post-info h4 {
+        font-size: 1rem;
+    }
+
+    .post-info p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    .post-content {
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .music-preview {
+        margin: 2rem 0;
+        width: 100%;
+        height: 20rem;
     }
 
 }
