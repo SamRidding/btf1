@@ -8,7 +8,7 @@
 
 body {
     width: 100%;
-    /* position: absolute; */
+    height: 100vh;
     font-family: 'Hind Madurai', sans-serif;
 }
 
@@ -169,8 +169,6 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 0;
 }
 
 footer h2 {
@@ -247,6 +245,10 @@ footer h2 {
 
 @media only screen and (max-width: 480px) {
 
+    #search {
+        height: 10vh;
+    }
+
     #logo h2 {
         font-size: 1.2rem;
     }
@@ -258,7 +260,7 @@ footer h2 {
 
     #navbar-links li p {
         padding: 0.2rem 0;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     footer h2 {
