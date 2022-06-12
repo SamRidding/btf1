@@ -25,8 +25,3 @@ def add_release(request, id):
         post.save_release.add(request.user)
         messages.success(request, 'The release has been added to your list.')
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
-
-
-# class UserProfile(TemplateView):
-
-#     template_name = "userprofile/userprofile.html"
