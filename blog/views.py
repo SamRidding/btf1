@@ -8,7 +8,7 @@ from .models import Post, Comment
 from .forms import CommentForm, AddPostForm, EditPostForm
 
 
-def HomePage(request):
+def home_page(request):
     """View to display posts and featured posts on home page"""
 
     posts = Post.objects.filter(status=1).order_by("-posted_on")[:6]
@@ -33,7 +33,7 @@ class Blog(generic.ListView):
     template_name = "blog/blog.html"
 
 
-def SearchBlog(request):
+def search_blog(request):
     """View to search blog posts"""
 
     if request.method == "POST":
@@ -53,6 +53,7 @@ class BlogPost(View):
     """
 
     def get(self, request, slug, *args, **kwargs):
+      
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by("-posted_on")
@@ -106,7 +107,7 @@ class BlogPost(View):
 
 
 @login_required
-def DeleteComment(request, comment_id):
+def delete_comment(request, comment_id):
     """Allow admins or users to delete comments"""
 
     comment = get_object_or_404(Comment, pk=comment_id)
@@ -118,7 +119,7 @@ def DeleteComment(request, comment_id):
 
 
 @login_required
-def AddPost(request):
+def add_post(request):
     """Allow admins to create new posts from the front end of the site"""
 
     if request.method == 'POST':
@@ -150,7 +151,7 @@ def AddPost(request):
 
 
 @login_required
-def EditPost(request, slug):
+def edit_post(request, slug):
     """Allow admins to edit posts from the front end of the site"""
 
     post = get_object_or_404(Post, slug=slug)
@@ -179,7 +180,7 @@ def EditPost(request, slug):
 
 
 @login_required
-def DeletePost(request, slug):
+def delete_post(request, slug):
     """Allow admins to delete posts form front end of the site"""
 
     if request.user.is_staff:
