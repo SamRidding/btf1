@@ -141,6 +141,7 @@ def EditPost(request, slug):
         if form.is_valid():
             form.save()
             messages.success(request, 'Post updated')
+            return redirect(reverse('blog_post', args=[post.slug]))
         else:
             messages.error(request, 'Failed to update - please try again')
     else:
