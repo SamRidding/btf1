@@ -14,16 +14,18 @@
 <section id="user-profile">
 
   <div id="saved-releases-contain">
-    
+
     <div id="save-head">
       <h2>My Saved Releases</h2>
     </div>
 
     {% for post in new %}
-    
+
     <div id="saved-releases">
-      <img id="post-img" src="{{ post.image.url }}" alt="">
-      <p>{{ post.title }}</p>
+      <a href="{% url 'blog_post' post.slug %}">
+        <img id="post-img" src="{{ post.image.url }}" alt="">
+        <p>{{ post.title }}</p>
+      </a>
     </div>
 
     {% endfor %}

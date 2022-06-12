@@ -38,6 +38,13 @@ body {
     border-bottom: 0.1rem solid #EAF0F0;
 }
 
+#saved-releases a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
 #saved-releases p {
     padding-left: 0.4rem;
 }
