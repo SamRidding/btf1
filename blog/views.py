@@ -53,7 +53,7 @@ class BlogPost(View):
     """
 
     def get(self, request, slug, *args, **kwargs):
-      
+
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by("-posted_on")
