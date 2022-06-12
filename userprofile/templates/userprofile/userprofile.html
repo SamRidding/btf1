@@ -22,9 +22,10 @@
     {% for post in new %}
 
     <div id="saved-releases">
-      <a href="{% url 'blog_post' post.slug %}">
+      <a class="post-link" href="{% url 'blog_post' post.slug %}">
         <img id="post-img" src="{{ post.image.url }}" alt="">
         <p>{{ post.title }}</p>
+        <a class="remove-btn" href="{% url 'add_release' post.id %}">Remove Release</a>
       </a>
     </div>
 

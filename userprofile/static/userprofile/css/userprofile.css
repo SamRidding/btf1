@@ -33,13 +33,16 @@ body {
 
 #saved-releases {
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     align-items: center;
     padding: 0.5rem 0.5rem;
     border-bottom: 0.1rem solid #EAF0F0;
 }
 
-#saved-releases a {
+.post-link {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     text-decoration: none;
     color: black;
@@ -54,6 +57,12 @@ body {
     width: 4rem;
 }
 
+.remove-btn {
+    text-decoration: initial;
+    color: blue;
+    padding-left: 5%;
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -62,10 +71,6 @@ footer {
 /* ------------------------------------------- Tablet Media Query */
 
 @media only screen and (max-width: 768px) {
-
-    #username {
-        margin: 1rem 10%;
-    }
     
     #saved-releases-contain {
         width: 80%;
@@ -93,6 +98,10 @@ footer {
 
     #save-head h2 {
         font-size: 1rem;
+    }
+
+    .remove-btn {
+        font-size: 0.8rem;
     }
     
 }
