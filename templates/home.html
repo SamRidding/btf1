@@ -9,8 +9,12 @@
 
 
 <div id="featured-post">
-    <img src="{{ featuredpost.image.url }}">
-    <div class="feature-title"><h2>{{ featuredpost.title }}</h2></div>
+    <a href="{% url 'blog_post' featuredpost.slug %}">
+        <img src="{{ featuredpost.image.url }}">
+        <div class="feature-title">
+            <h2>{{ featuredpost.title }}</h2>
+        </div>
+    </a>
 </div>
 
 
@@ -38,4 +42,4 @@
     </div>
 
 </section>
-{% endblock %} 
+{% endblock %}

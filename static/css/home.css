@@ -5,6 +5,10 @@
     position: relative;
 }
 
+#featured-post a {
+    color: black;
+}
+
 #featured-post img {
     width: 100%;
     height: 28rem;
