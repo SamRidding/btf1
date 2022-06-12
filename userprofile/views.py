@@ -19,7 +19,8 @@ def add_release(request, id):
     post = get_object_or_404(Post, id=id)
     if post.save_release.filter(id=request.user.id).exists():
         post.save_release.remove(request.user)
-        messages.success(request, 'The release has been removed from your list.')
+        messages.success(request, 'The release has been removed from your \
+                                   list.')
     else:
         post.save_release.add(request.user)
         messages.success(request, 'The release has been added to your list.')
