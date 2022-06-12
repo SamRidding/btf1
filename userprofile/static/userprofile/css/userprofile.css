@@ -15,7 +15,7 @@ body {
 #saved-releases-contain {
     display: flex;
     flex-direction: column;
-    width: 33%;
+    width: 50%;
     margin: 1rem 2rem;
     border: 0.1rem solid #EAF0F0;
     border-bottom: none;
@@ -45,4 +45,42 @@ body {
 #post-img {
     height: 4rem;
     width: 4rem;
+}
+
+/* ------------------------------------------- Tablet Media Query */
+
+@media only screen and (max-width: 768px) {
+
+    #username {
+        margin: 1rem 10%;
+    }
+    
+    #saved-releases-contain {
+        width: 80%;
+    }
+    
+}
+
+/* ------------------------------------------- Mobile Media Query */
+
+@media only screen and (max-width: 480px) {
+
+    #username {
+        width: 100%;
+        margin: 1rem 0.4rem;
+    }
+
+    #username p {
+        font-size: 1rem;
+    }
+
+    #saved-releases-contain {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    #save-head h2 {
+        font-size: 1rem;
+    }
+    
 }
