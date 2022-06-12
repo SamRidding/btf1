@@ -69,15 +69,21 @@ class BlogPost(View):
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.order_by("-posted_on")
 
-        comment_form = CommentForm(data=request.POST)
-        if comment_form.is_valid():
-            comment_form.instance.user = request.user
-            comment = comment_form.save(commit=False)
-            comment.post = post
-            comment.save()
-            comment_form = CommentForm()
+        if request.user.is_authenticated:
+            comment_form = CommentForm(data=request.POST)
+            if comment_form.is_valid():
+                comment_form.instance.user = request.user
+                comment = comment_form.save(commit=False)
+                comment.post = post
+                comment.save()
+                comment_form = CommentForm()
+                messages.success(request, 'Your comment has been posted')
+            else:
+                comment_form = CommentForm()
         else:
-            comment_form = CommentForm()
+            messages.error(request, 'You need to be logged in to post \
+                           comments')
+            return redirect(reverse('blog_post', args=[post.slug]))
 
         return render(
             request,
