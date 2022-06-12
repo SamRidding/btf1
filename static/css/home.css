@@ -91,9 +91,13 @@
 
 }
 
-/* ------------------------------------------- Tablet & Mobile Media Query */
+/* ------------------------------------------- Tablet Media Query */
 
 @media only screen and (max-width: 768px) {
+
+    .feature-title {
+        font-size: 1.4rem;
+    }
 
     .blog-post {
         height: 20rem;
@@ -101,4 +105,47 @@
         overflow: hidden;
         margin: 0.25rem 0;
     }
+}
+
+/* ------------------------------------------- Mobile Media Query */
+
+@media only screen and (max-width: 480px) {
+
+    #featured-post img {
+        height: 20rem;
+    }
+
+    .feature-title {
+        font-size: 1rem;
+        max-width: 100%;
+        padding: 0.4rem;
+        left: 0;
+    }
+
+    #blog-link h2 {
+        font-size: 1.6rem;
+    }
+
+    #blog-contain {
+        width: 100%;
+    }
+
+    #posts {
+        justify-content: center;
+    }
+
+    .blog-post {
+        width: 100%;
+    }
+
+    .post-img-contain {
+        width: 100%;
+    }
+
+    .post-img {
+        height: 90%;
+        width: 90%;
+        object-fit: contain;
+    }
+
 }

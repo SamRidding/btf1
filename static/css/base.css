@@ -8,7 +8,7 @@
 
 body {
     width: 100%;
-    position: absolute;
+    /* position: absolute; */
     font-family: 'Hind Madurai', sans-serif;
 }
 
@@ -256,6 +256,14 @@ footer h2 {
 
     #navbar-links li p {
         padding: 0.2rem 0;
+        font-size: 1rem;
+    }
+
+    footer h2 {
+        font-size: 2rem;
+    }
+
+    .social-links a {
         font-size: 1rem;
     }
 
