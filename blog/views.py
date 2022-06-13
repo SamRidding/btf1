@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 from .models import Post, Comment
 from .forms import CommentForm, AddPostForm, EditPostForm
+from mixes.models import Mix
 
 
 def home_page(request):
@@ -13,11 +14,13 @@ def home_page(request):
 
     posts = Post.objects.filter(status=1).order_by("-posted_on")[:6]
     featuredpost = random.choice(posts)
+    mixes = Mix.objects.all().order_by("-posted_on")[:4]
 
     template = "home.html"
     context = {
         "posts": posts,
         "featuredpost": featuredpost,
+        "mixes": mixes,
     }
 
     return render(request,
