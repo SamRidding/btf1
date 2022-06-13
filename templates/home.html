@@ -38,7 +38,27 @@
             </div>
             {% endfor %}
         </div>
+    </div>
 
+</section>
+
+<section id="mix-section">
+
+    <div id="mix-contain">
+        <div id="mixes">
+            {% for mix in mixes %}
+            <div class="mix-post">
+                <a href="#">
+                    <div class="mix-img-contain">
+                        <img class="mix-img" src="{{ mix.image.url }}">
+                    </div>
+                    <div class="mix-title">
+                        <h3>{{ mix.title }}</h3>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 
 </section>
