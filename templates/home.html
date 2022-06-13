@@ -48,7 +48,7 @@
         <div id="mixes">
             {% for mix in mixes %}
             <div class="mix-post">
-                <a href="#">
+                <a href="{% url 'mix_page' mix.slug  %}">
                     <div class="mix-img-contain">
                         <img class="mix-img" src="{{ mix.image.url }}">
                     </div>
