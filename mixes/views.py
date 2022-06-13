@@ -9,12 +9,12 @@ class MixPage(View):
     def get(self, request, slug, *args, **kwargs):
 
         queryset = Mix.objects.all()
-        mixes = get_object_or_404(queryset, slug=slug)
+        mix = get_object_or_404(queryset, slug=slug)
 
         return render(
             request,
             "mixes/mix_page.html",
             {
-                "mixes": mixes,
+                "mix": mix,
             }
         )
