@@ -98,11 +98,10 @@
 #mixes {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .mix-post {
-    height: 16rem;
     width: 24%;
     position: relative;
 }
@@ -144,6 +143,10 @@
         width: 48%;
         overflow: hidden;
         margin: 0.25rem 0;
+    }
+
+    .mix-post {
+        width: 48%;
     }
 
 }
@@ -205,4 +208,11 @@
         object-fit: contain;
     }
 
+    #mix-contain {
+        width: 100%;
+    }
+
+    .mix-post {
+        width: 80%;
+    }
 }
