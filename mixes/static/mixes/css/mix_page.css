@@ -1,0 +1,96 @@
+#mix-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img-contain {
+    position: relative;
+}
+
+.mix-title {
+    position: absolute;
+    top: 5%;
+    left: 20%;
+    color: white;
+}
+
+.mix-title h1 {
+    font-size: 3.2rem;
+    font-weight: 600;
+}
+
+.mix-img {
+    height: 28rem;
+    width: 28rem;
+}
+
+.mix-content {
+    width: 80%;
+    font-size: 1.2rem;
+    margin: 2rem auto;
+    justify-content: center;
+}
+
+.music-preview {
+    margin: 2rem 0;
+    width: 80%;
+    height: 28rem;
+}
+
+/* ------------------------------------------- Tablet Media Query */
+
+@media only screen and (max-width: 768px) {
+
+    .mix-content {
+        text-align: center;
+    }
+
+}
+
+/* ------------------------------------------- Mobile Media Query */
+
+@media only screen and (max-width: 480px) {
+
+    .mix-title {
+        width: 100%;
+        margin: 0;
+    }
+
+    .mix-title h1 {
+        font-size: 2rem;
+    }
+
+    .img_contain {
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .mix-img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .mix-info h4 {
+        font-size: 1rem;
+    }
+
+    .mix-info p {
+        font-size: 0.9rem;
+        margin-bottom: 0;
+    }
+
+    .mix-content {
+        width: 100%;
+        padding: 0.4rem;
+        font-size: 0.9rem;
+    }
+
+    .music-preview {
+        width: 100%;
+        height: 20rem;
+        margin: 0;
+    }
+
+}

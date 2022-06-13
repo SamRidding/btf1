@@ -3,20 +3,20 @@
 {% load embed_video_tags %}
 
 {% block extra_css %}
+<link rel="stylesheet" href="{% static 'mixes/css/mix_page.css' %}">
 {% endblock %}
 
 {% block content %}
 <section id="mix-section">
 
-    <div class="mix-title">
-        <h1>{{ mix.title }}</h1>
-    </div>
-
-    <div class="img_contain">
+    <div class="img-contain">
         <img class="mix-img" src="{{ mix.image.url }}" alt="">
+        <div class="mix-title">
+            <h1>{{ mix.title }}</h1>
+        </div>
     </div>
 
-    <div class="post-content">
+    <div class="mix-content">
         {{ mix.content|safe }}
     </div>
 
