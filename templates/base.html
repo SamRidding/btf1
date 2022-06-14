@@ -134,6 +134,14 @@
         });
     </script>
 
+    <script>
+        var removemsg = document.getElementById("user-msg");
+
+        setTimeout(function () {
+            removemsg.style.display = "none";
+        }, 2000);
+    </script>
+
     {% block extra_js %}
     {% endblock %}
 </body>
