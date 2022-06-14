@@ -63,11 +63,6 @@ body {
     padding-left: 5%;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-}
-
 /* ------------------------------------------- Tablet Media Query */
 
 @media only screen and (max-width: 768px) {
