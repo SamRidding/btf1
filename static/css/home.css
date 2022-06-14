@@ -85,13 +85,26 @@
 /* ------------------------------------------- Mix Section */
 
 #mix-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin: 2rem 0;
 }
 
+#mixes-link {
+    margin: 0 auto;
+    width: 80%;
+}
+
+#mixes-link h2 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+#mixes-link a {
+    text-decoration: none;
+    color: black;
+}
+
 #mix-contain {
+    margin: 0 auto;
     width: 80%;
 }
 
@@ -102,7 +115,7 @@
 }
 
 .mix-post {
-    width: 24%;
+    width: 25%;
     position: relative;
 }
 
@@ -146,7 +159,7 @@
     }
 
     .mix-post {
-        width: 48%;
+        width: 50%;
     }
 
 }
