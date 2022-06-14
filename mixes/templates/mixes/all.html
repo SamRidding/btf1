@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+<section id="mix-section">
+    <div id="mix-contain">
+        <div id="mixes">
+            {% for mix in mix_list %}
+            <div class="mix-post">
+                <a href="{% url 'mix_page' mix.slug  %}">
+                    <div class="mix-img-contain">
+                        <img class="mix-img" src="{{ mix.image.url }}">
+                    </div>
+                    <h3 class="mix-title">{{ mix.title }}</h3>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
