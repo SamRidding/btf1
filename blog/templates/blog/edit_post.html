@@ -21,7 +21,7 @@
     <form class="login" enctype="multipart/form-data" method="POST" action="{% url 'edit_post' post.slug %}">
       {% csrf_token %}
       {{ form|crispy }}
-      <button class="btn btn-outline-secondary">Edit Post</button>
+      <button class="btn btn-outline-secondary">Save Post</button>
     </form>
   </section>
 
