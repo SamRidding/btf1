@@ -45,13 +45,17 @@ body {
     }
 }
 
-#search {
+.search {
     height: 20vh;
     width: 100%;
     display: none;
     justify-content: center;
     align-items: center;
     background-color: #EAF0F0;
+}
+
+.search.active {
+    display: flex;
 }
 
 .search-bar {

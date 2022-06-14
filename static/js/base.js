@@ -7,13 +7,9 @@ burgerMenu.addEventListener('click', e => {
 
 
 const searchBtn = document.getElementById('search-btn');
-const searchBar = document.getElementById('search');
+const searchBar = document.getElementsByClassName('search')[0];
 
 searchBtn.addEventListener('click', e => {
-    if (searchBar.style.display === 'none') {
-        searchBar.style.display = 'flex';
-    } else {
-        searchBar.style.display = 'none';
-    }
+    searchBar.classList.toggle('active')
 });
 
