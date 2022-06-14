@@ -30,10 +30,7 @@ class Comment(models.Model):
                              related_name="comments")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     body = models.TextField()
-    posted_on = models.DateTimeField(auto_now_add=True)
+    posted_on = models.DateField(auto_now_add=True)
 
     class Meta:
         ordering = ["posted_on"]
-
-    def __str__(self):
-        return f"Comment {self.body} by {self.user}"
