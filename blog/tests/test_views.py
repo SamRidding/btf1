@@ -39,6 +39,9 @@ class TestBlogViews(TestCase):
 
         self.home_page = (reverse('home'))
         self.blog = (reverse('blog'))
+        self.search_blog = (reverse('search_blog'))
+        self.blogpost = (reverse('blog_post',
+                                 kwargs={"slug": self.post.slug}))
 
     def test_home_page_view(self):
         response = self.client.get(self.home_page)
@@ -51,4 +54,15 @@ class TestBlogViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "blog/blog.html")
         self.assertTemplateUsed(response, "base.html")
-    
+
+    def test_search_blog_view(self):
+        response = self.client.get(self.search_blog)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "blog/search_blog.html")
+        self.assertTemplateUsed(response, "base.html")
+
+    def test_blog_post_view(self):
+        response = self.client.get(self.blogpost)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "blog/blog_post.html")
+        self.assertTemplateUsed(response, "base.html")
