@@ -39,3 +39,8 @@ class TestBlogViews(TestCase):
 
         self.home_page = (reverse('home'))
 
+    def test_home_page_view(self):
+        response = self.client.get(self.home_page)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "home.html")
+        self.assertTemplateUsed(response, "base.html")
