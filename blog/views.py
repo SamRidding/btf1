@@ -124,23 +124,27 @@ def delete_comment(request, comment_id):
 @login_required
 def add_post(request):
     """Allow admins to create new posts from the front end of the site"""
-
-    if request.method == 'POST':
-        form = AddPostForm(request.POST, request.FILES)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.slug = slugify(post.title)
-            post.save()
-            messages.success(request, "The post has been added to the blog.")
-            return redirect(reverse('blog_post', args=[post.slug]))
+    
+    if request.user.is_staff:
+        if request.method == 'POST':
+            form = AddPostForm(request.POST, request.FILES)
+            if form.is_valid():
+                post = form.save(commit=False)
+                post.author = request.user
+                post.slug = slugify(post.title)
+                post.save()
+                messages.success(request, "The post has been added to the blog.")
+                return redirect(reverse('blog_post', args=[post.slug]))
+            else:
+                messages.error(request,
+                            "The post could not be submitted. \
+                                Please try again.")
+                return redirect('add_post')
         else:
-            messages.error(request,
-                           "The post could not be submitted. \
-                            Please try again.")
-            return redirect('add_post')
+            form = AddPostForm()
     else:
-        form = AddPostForm()
+        messages.error(request, 'You do not have permission to add blog posts')
+        return redirect(reverse('blog'))
 
     template = "blog/add_post.html"
 
