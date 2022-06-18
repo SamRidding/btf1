@@ -100,3 +100,24 @@ class TestUpdateBlogViews(TestCase):
             user=self.user,
             body="Test comment",
         )
+
+        self.add_post = (reverse('add_post'))
+        self.blog = (reverse('blog'))
+
+    def test_admin_add_blog_post(self):
+        self.client.login(
+            username="testadmin", password="testpassword")
+        response = self.client.get(self.add_post)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "blog/add_post.html")
+        self.assertTemplateUsed(response, "base.html")
+
+    def test_user_add_blog_post(self):
+        self.client.login(
+            username="testuser", password="testpassword")
+        response = self.client.get(self.add_post)
+        self.assertRedirects(response, self.blog)
+        self.assertEqual(response.status_code, 302)
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]),
+                         'You do not have permission to add blog posts')
