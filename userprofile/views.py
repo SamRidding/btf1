@@ -6,7 +6,7 @@ from blog.models import Post
 
 
 @login_required
-def saved_releases(request):
+def saved_release(request):
     """Displays releases saved by the user in their user profile"""
 
     new = Post.objects.filter(save_release=request.user)
