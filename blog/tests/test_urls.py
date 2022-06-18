@@ -4,7 +4,7 @@ from blog.views import home_page, Blog, search_blog, add_post, BlogPost, \
      delete_comment, edit_post, delete_post
 
 
-class TestUrls(SimpleTestCase):
+class TestBlogUrls(SimpleTestCase):
 
     def test_home_url_is_resolved(self):
         url = reverse('home')
