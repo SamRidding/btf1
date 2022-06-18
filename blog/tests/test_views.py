@@ -220,3 +220,14 @@ class TestUpdateBlogViews(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]),
                          'You do not have permission to delete this post.')
+
+    def test_admin_delete_blog_post(self):
+        self.client.login(
+            username="testadmin", password="testpassword")
+
+        response = self.client.post(self.delete_post)
+        post = Post.objects.filter(slug=self.post.slug)
+        self.assertFalse(post)
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]),
+                         "The post has been deleted")
