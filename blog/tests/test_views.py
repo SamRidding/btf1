@@ -103,6 +103,10 @@ class TestUpdateBlogViews(TestCase):
 
         self.add_post = (reverse('add_post'))
         self.blog = (reverse('blog'))
+        self.blog_post = (reverse('blog_post',
+                                  kwargs={"slug": self.post.slug}))
+        self.edit_post = (reverse('edit_post',
+                                  kwargs={"slug": self.post.slug}))
 
     def test_admin_add_blog_post(self):
         self.client.login(
@@ -167,3 +171,13 @@ class TestUpdateBlogViews(TestCase):
                          "The post has been added to the blog.")
         self.assertRedirects(response, reverse(
             'blog_post', kwargs={"slug": post.slug}))
+
+    def test_user_edit_blog_post(self):
+        self.client.login(
+            username="testuser", password="testpassword")
+        response = self.client.get(self.edit_post)
+        self.assertRedirects(response, self.blog)
+        self.assertEqual(response.status_code, 302)
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]),
+                         'You do not have permission to edit blog posts')
