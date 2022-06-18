@@ -181,3 +181,29 @@ class TestUpdateBlogViews(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]),
                          'You do not have permission to edit blog posts')
+
+    def test_admin_invalid_edit_blog_post(self):
+        self.client.login(
+            username="testadmin", password="testpassword")
+        response = self.client.post(self.edit_post, {
+
+        })
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]),
+                         'Failed to update - please try again')
+
+    def test_admin_valid_edit_blog_post(self):
+        self.client.login(
+            username="testadmin", password="testpassword")
+        
+        response = self.client.post(self.edit_post, {
+            "title": "Edit Test Post",
+            "image": SimpleUploadedFile(
+                name='testimage.jpg',
+                content=open('images/unittest/testimage.jpg', 'rb').read(),
+                content_type='image/jpeg'),
+            "content": "Testing edit post",
+            "status": 1,
+        })
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]), 'Post updated')
