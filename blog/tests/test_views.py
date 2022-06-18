@@ -139,3 +139,31 @@ class TestUpdateBlogViews(TestCase):
                          "The post could not be submitted. \
                                 Please try again.")
         self.assertRedirects(response, self.add_post)
+
+    def test_admin_add_valid_post(self):
+
+        self.client.login(
+            username="testadmin", password="testpassword")
+        response = self.client.post(self.add_post, {
+            "title": "Test Post 2",
+            "slug": "test-post-2",
+            "image": SimpleUploadedFile(
+                name='testimage.jpg',
+                content=open('images/unittest/testimage.jpg', 'rb').read(),
+                content_type='image/jpeg'),
+            "author": self.admin,
+            "status": 1,
+        })
+
+        post = Post.objects.get(title="Test Post 2")
+
+        self.assertEqual(post.title, "Test Post 2")
+        self.assertEqual(post.slug, "test-post-2")
+        self.assertEqual(post.author, self.admin)
+        self.assertEqual(post.status, 1)
+
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]),
+                         "The post has been added to the blog.")
+        self.assertRedirects(response, reverse(
+            'blog_post', kwargs={"slug": post.slug}))
