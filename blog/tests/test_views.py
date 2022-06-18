@@ -1,7 +1,9 @@
 import tempfile
 from django.test import TestCase, Client
 from django.urls import reverse
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.contrib.auth.models import User
+from django.contrib.messages import get_messages
 from blog.models import Post, Comment
 from mixes.models import Mix
 
@@ -66,3 +68,35 @@ class TestBlogViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "blog/blog_post.html")
         self.assertTemplateUsed(response, "base.html")
+
+
+class TestUpdateBlogViews(TestCase):
+    
+    def setUp(self):
+
+        self.client = Client()
+
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='testpassword',
+        )
+        self.admin = User.objects.create_superuser(
+            username='testadmin',
+            password='testpassword',
+        )
+        self.post = Post.objects.create(
+            title="Test Post",
+            slug="test-post",
+            author=self.admin,
+            image=SimpleUploadedFile(
+                name='testimage.jpg',
+                content=open('images/unittest/testimage.jpg', 'rb').read(),
+                content_type='image/jpeg'),
+            status=1,
+        )
+
+        self.comment = Comment.objects.create(
+            post=self.post,
+            user=self.user,
+            body="Test comment",
+        )
