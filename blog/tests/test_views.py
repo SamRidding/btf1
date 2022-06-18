@@ -121,3 +121,21 @@ class TestUpdateBlogViews(TestCase):
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]),
                          'You do not have permission to add blog posts')
+
+    def test_admin_add_invalid_post(self):
+
+        self.client.login(
+            username="testadmin", password="testpassword")
+        response = self.client.post(self.add_post, {
+            "title": 1,
+            "slug": 1,
+            "author": 1,
+            "image": 1,
+            "status": 1,
+        })
+
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]),
+                         "The post could not be submitted. \
+                                Please try again.")
+        self.assertRedirects(response, self.add_post)
