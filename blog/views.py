@@ -133,11 +133,12 @@ def add_post(request):
                 post.author = request.user
                 post.slug = slugify(post.title)
                 post.save()
-                messages.success(request, "The post has been added to the blog.")
+                messages.success(
+                    request, "The post has been added to the blog.")
                 return redirect(reverse('blog_post', args=[post.slug]))
             else:
                 messages.error(request,
-                            "The post could not be submitted. \
+                               "The post could not be submitted. \
                                 Please try again.")
                 return redirect('add_post')
         else:
@@ -162,16 +163,22 @@ def edit_post(request, slug):
     """Allow admins to edit posts from the front end of the site"""
 
     post = get_object_or_404(Post, slug=slug)
-    if request.method == "POST":
-        form = EditPostForm(request.POST, request.FILES, instance=post)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Post updated')
-            return redirect(reverse('blog_post', args=[post.slug]))
+    if request.user.is_staff:
+        if request.method == "POST":
+            form = EditPostForm(request.POST, request.FILES, instance=post)
+            print(form.errors)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Post updated')
+                return redirect(reverse('blog_post', args=[post.slug]))
+            else:
+                messages.error(request, 'Failed to update - please try again')
         else:
-            messages.error(request, 'Failed to update - please try again')
+            form = EditPostForm(instance=post)
     else:
-        form = EditPostForm(instance=post)
+        messages.error(
+            request, 'You do not have permission to edit blog posts')
+        return redirect(reverse('blog'))
 
     template = "blog/edit_post.html"
 
@@ -189,9 +196,9 @@ def edit_post(request, slug):
 @login_required
 def delete_post(request, slug):
     """Allow admins to delete posts form front end of the site"""
-
+    
+    post = get_object_or_404(Post, slug=slug)
     if request.user.is_staff:
-        post = get_object_or_404(Post, slug=slug)
         post.delete()
         messages.success(request, "The post has been deleted")
         return redirect('home')
