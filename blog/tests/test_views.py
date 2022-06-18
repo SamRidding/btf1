@@ -107,6 +107,8 @@ class TestUpdateBlogViews(TestCase):
                                   kwargs={"slug": self.post.slug}))
         self.edit_post = (reverse('edit_post',
                                   kwargs={"slug": self.post.slug}))
+        self.delete_post = (reverse('delete_post',
+                                    kwargs={"slug": self.post.slug}))
 
     def test_admin_add_blog_post(self):
         self.client.login(
@@ -207,3 +209,14 @@ class TestUpdateBlogViews(TestCase):
         })
         messages = list(get_messages(response.wsgi_request))
         self.assertEqual(str(messages[0]), 'Post updated')
+
+    def test_user_delete_blog_post(self):
+        self.client.login(
+            username="testuser", password="testpassword")
+
+        response = self.client.get(self.delete_post)
+        self.assertRedirects(response, self.blog_post)
+        self.assertEqual(response.status_code, 302)
+        messages = list(get_messages(response.wsgi_request))
+        self.assertEqual(str(messages[0]),
+                         'You do not have permission to delete this post.')
