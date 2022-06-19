@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'embed_video',
-    'fontawesomefree',
     'crispy_forms',
     'coverage',
     'blog',
