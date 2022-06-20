@@ -71,7 +71,7 @@ class TestBlogViews(TestCase):
 
 
 class TestUpdateBlogViews(TestCase):
-    
+
     def setUp(self):
 
         self.client = Client()
@@ -197,7 +197,7 @@ class TestUpdateBlogViews(TestCase):
     def test_admin_valid_edit_blog_post(self):
         self.client.login(
             username="testadmin", password="testpassword")
-        
+
         response = self.client.post(self.edit_post, {
             "title": "Edit Test Post",
             "image": SimpleUploadedFile(

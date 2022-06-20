@@ -124,7 +124,7 @@ def delete_comment(request, comment_id):
 @login_required
 def add_post(request):
     """Allow admins to create new posts from the front end of the site"""
-    
+
     if request.user.is_staff:
         if request.method == 'POST':
             form = AddPostForm(request.POST, request.FILES)
@@ -196,7 +196,7 @@ def edit_post(request, slug):
 @login_required
 def delete_post(request, slug):
     """Allow admins to delete posts form front end of the site"""
-    
+
     post = get_object_or_404(Post, slug=slug)
     if request.user.is_staff:
         post.delete()

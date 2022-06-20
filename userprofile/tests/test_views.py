@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib.messages import get_messages
 from blog.models import Post
 
+
 class TestUserProfileViews(TestCase):
 
     def setUp(self):
@@ -26,7 +27,6 @@ class TestUserProfileViews(TestCase):
             author=self.admin,
             image=tempfile.NamedTemporaryFile(suffix=".jpg").name,
             status=1,
-
         )
 
         self.userprofile = (reverse('userprofile'))
@@ -38,4 +38,3 @@ class TestUserProfileViews(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "userprofile/userprofile.html")
         self.assertTemplateUsed(response, "base.html")
-

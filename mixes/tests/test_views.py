@@ -3,6 +3,7 @@ from django.test import TestCase, Client
 from django.urls import reverse
 from mixes.models import Mix
 
+
 class TestMixesViews(TestCase):
 
     def setUp(self):
