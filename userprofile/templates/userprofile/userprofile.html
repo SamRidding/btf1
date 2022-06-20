@@ -27,7 +27,7 @@
 
     <div id="saved-releases">
       <a class="post-link" href="{% url 'blog_post' post.slug %}">
-        <img id="post-img" src="{{ post.image.url }}" alt="">
+        <img id="post-img" src="{{ post.image.url }}" alt="music cover artwork">
         <p>{{ post.title }}</p>
         <a class="remove-btn" href="{% url 'add_release' post.id %}">Remove Release</a>
       </a>

@@ -14,7 +14,7 @@
 
 <div id="featured-post">
     <a href="{% url 'blog_post' featuredpost.slug %}">
-        <img src="{{ featuredpost.image.url }}">
+        <img src="{{ featuredpost.image.url }}" alt="music cover artwork">
         <div class="feature-title">
             <h2>{{ featuredpost.title }}</h2>
         </div>
@@ -35,7 +35,7 @@
             <div class="blog-post">
                 <a href="{% url 'blog_post' post.slug  %}">
                     <div class="post-img-contain">
-                        <img class="post-img" src="{{ post.image.url }}">
+                        <img class="post-img" src="{{ post.image.url }}" alt="music cover artwork">
                     </div>
                     <h3 class="post-title">{{ post.title }}</h3>
                 </a>
@@ -59,7 +59,7 @@
             <div class="mix-post">
                 <a href="{% url 'mix_page' mix.slug  %}">
                     <div class="mix-img-contain">
-                        <img class="mix-img" src="{{ mix.image.url }}">
+                        <img class="mix-img" src="{{ mix.image.url }}" alt="music mix artwork">
                     </div>
                     <div class="mix-title">
                         <h3>{{ mix.title }}</h3>
