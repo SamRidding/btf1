@@ -2,7 +2,6 @@ import tempfile
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
-from django.contrib.messages import get_messages
 from blog.models import Post
 
 
