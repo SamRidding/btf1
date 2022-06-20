@@ -109,6 +109,13 @@ class TestUpdateBlogViews(TestCase):
                                   kwargs={"slug": self.post.slug}))
         self.delete_post = (reverse('delete_post',
                                     kwargs={"slug": self.post.slug}))
+        self.search_blog = (reverse('search_blog'))
+
+    def test_search_blog_posts(self):
+        response = self.client.get(self.search_blog)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "blog/search_blog.html")
+        self.assertTemplateUsed(response, "base.html")
 
     def test_admin_add_blog_post(self):
         self.client.login(
