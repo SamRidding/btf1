@@ -1,7 +1,7 @@
 from django.test import TestCase, Client
-from mixes.models import Mix
-from django.contrib.auth.models import User
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.contrib.auth.models import User
+from mixes.models import Mix
 
 
 class TestMixModel(TestCase):

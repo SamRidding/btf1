@@ -1,12 +1,14 @@
 import random
+
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib import messages
 from django.views import generic, View
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
+
+from mixes.models import Mix
 from .models import Post, Comment
 from .forms import CommentForm, AddPostForm, EditPostForm
-from mixes.models import Mix
 
 
 def home_page(request):
