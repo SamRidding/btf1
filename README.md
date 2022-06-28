@@ -8,6 +8,35 @@ For normal users, they can preview the music being reviewed on each post through
 
 Live link: https://backtofrontblog.herokuapp.com/
 
+## Table Of Contents
+
+- [User Stories](#user-stories)
+  * [Admin](#admin)
+  * [User](#user)
+- [Design](#design)
+  * [Colour Scheme](#colour-scheme)
+  * [Fonts](#fonts)
+  * [Imagery](#imagery)
+- [Wireframes](#wireframes)
+- [Features](#features)
+  * [Navigation Bar](#navigation-bar)
+  * [Footer](#footer)
+  * [Featured-Post](#featured-post)
+  * [Blog](#blog)
+  * [Blog Posts](#blog-posts)
+  * [User Profile](#user-profile)
+  * [Mixes](#mixes)
+- [Future Development](#future-development)
+- [Database Schema](#database-schema)
+- [Testing](#testing)
+- [Deployment](#deployment)
+  * [Local SetUp](#local-set-up)
+  * [Heroku Deployment](#heroku-deployment)
+- [Credits](#credits)
+  * [Code](#code)
+  * [Content & Images](#content-&-images)
+  * [Music Previews & Mixes](#music-previews-&-mixes)
+
 ## User Stories
 
 ### Admin:
@@ -191,8 +220,8 @@ The wireframes for the site were made from https://wireframe.cc/ and are attahce
 
 (Meets User story 2 & 6 & Admin User Story 6)
 
-<img src="readme-images/features/mixes/mixepage1.png" width=600>
-<img src="readme-images/features/mixes/mixepage2.png" width=600>
+<img src="readme-images/features/mixes/mixpage1.png" width=600>
+<img src="readme-images/features/mixes/mixpage2.png" width=600>
 
 ## Future Development
 
@@ -214,6 +243,8 @@ The diagram shows the initial design of the database, the models and their relat
 For development I used the SQLite database & for production I used postgreSQL database
 
 ## Testing
+
+The testing done for the project is found via the following [link](TESTING.md)
 
 ## Deployment
 

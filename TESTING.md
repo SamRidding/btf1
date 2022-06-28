@@ -1,6 +1,6 @@
 # Testing 
 
-## Table of contents.
+## Table Of Contents
 
 - [Unit Testing](#unit-testing)
 - [Manual Testing](#manual-testing)
