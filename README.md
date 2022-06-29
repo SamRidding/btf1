@@ -6,6 +6,8 @@ Back To Front is a music blog aimed at fans of all genres/subgenres of electroni
 
 For normal users, they can preview the music being reviewed on each post through embedded links to Soundcloud/Youtube as well as read the review. Users can comment on each post to share their thoughts and interact with one another. Users can also save releases to their user account so if they like the release they can easily find it via the saved releases section.
 
+<img src="readme-images/amiresponsive.png">
+
 Live link: https://backtofrontblog.herokuapp.com/
 
 ## Table Of Contents
