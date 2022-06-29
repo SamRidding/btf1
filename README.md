@@ -233,7 +233,7 @@ There is plenty of scope for future development, and I would like to implement
 - Users can delete their account
 - the Blog & Mixes pages will be updated to have pagination (in the form of endless scroll) for when more content is added to the site
 - Instead of mixes being an embedded link to another site, I would like to host them in a database and add a music player to the site so users can play music whilst they navigate the site
-- Mixes can be uploaded form the front end of the site
+- Mixes can be uploaded from the front end of the site
 - Users can flag comments to admins if they believe they are offensive
 
 ## Database Schema
@@ -288,7 +288,7 @@ To set up the project locally:
 
     - python3 manage.py runserver
 
-## Heroku Deployment
+### Heroku Deployment
 
 1. Create a Heroku app: 
 
